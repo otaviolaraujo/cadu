@@ -1,0 +1,31 @@
+CREATE MULTISET TABLE DL_SAGI.TB_CAD_DA_FAM_202110 AS(
+SELECT b1.CO_FAMILIAR_FAM AS cod_familiar_fam, DT_CADASTRO_FAM AS dat_cadastramento_fam, DT_ULT_ATUAL_FAM AS dat_alteracao_fam,
+	CO_EST_CADASTRAL_FAM AS cod_est_cadastral_fam, VL_RENDA_MEDIA_FAM AS vlr_renda_media_fam, IN_TRABALHO_INFANTIL_FAM AS ind_trabalho_infantil_fam,
+	LTRIM(CO_MUNIC_IBGE_2_FAM) || LTRIM(CO_MUNIC_IBGE_5_FAM) AS cod_munic_ibge_fam, CO_MODALIDADE_OPER_FAM AS cod_modalidade_fam, CO_FORMA_COLETA_FAM AS cod_forma_coleta_fam,
+	NO_LOCALIDADE_FAM AS nom_localidade_fam, NO_TIP_LOGRADOURO_FAM AS nom_tip_logradouro_fam, NO_TIT_LOGRADOURO_FAM AS nom_tit_logradouro_fam,
+	NO_LOGRADOURO_FAM AS nom_logradouro_fam, NU_LOGRADOURO_FAM AS num_logradouro_fam, DS_COMPLEMENTO_FAM AS des_complemento_fam,
+	DS_COMPLEMENTO_ADIC_FAM AS des_complemento_adic_fam, RTRIM(NU_CEP_LOGRADOURO_FAM) AS num_cep_logradouro_fam, CO_UNIDADE_TERRITORIAL_FAM AS cod_unidade_territorial_fam,
+	NO_UNIDADE_TERRITORIAL_FAM AS nom_unidade_territorial_fam, DS_REFERENCIA_LOCAL_FAM AS txt_referencia_local_fam, DT_CDSTR_ATUAL_FMLA AS dta_cdstr_atual_fmla,
+	IN_FAM_ALTERADA_V7 AS flag_fam_alterada_v7, DT_ATUALIZACAO_FAM AS dat_atualizacao_fam, CO_LOCAL_DOMIC_FAM AS cod_local_domic_fam,
+    CO_ESPECIE_DOMIC_FAM AS cod_especie_domic_fam, QT_COMODOS_DOMIC_FAM AS qtd_comodos_domic_fam, QT_COMODOS_DORMITORIO_FAM AS qtd_comodos_dormitorio_fam,
+	CO_MATERIAL_PISO_FAM AS cod_material_piso_fam, CO_MATERIAL_DOMIC_FAM AS cod_material_domic_fam, CO_AGUA_CANALIZADA_FAM AS cod_agua_canalizada_fam,
+	CO_ABASTE_AGUA_DOMIC_FAM AS cod_abaste_agua_domic_fam, CO_BANHEIRO_DOMIC_FAM AS cod_banheiro_domic_fam, CO_ESCOA_SANITARIO_DOMIC_FAM AS cod_escoa_sanitario_domic_fam, 
+	CO_DESTINO_LIXO_DOMIC_FAM AS cod_destino_lixo_domic_fam, CO_ILUMINACAO_DOMIC_FAM AS cod_iluminacao_domic_fam, CO_CALCAMENTO_DOMIC_FAM AS cod_calcamento_domic_fam, 
+	IN_FAMILIA_INDIGENA_FAM AS cod_familia_indigena_fam, CO_POVO_INDIGENA_FAM AS cod_povo_indigena_fam, NO_POVO_INDIGENA_FAM AS nom_povo_indigena_fam,
+	CO_INDIGENA_RESIDE_FAM AS cod_indigena_reside_fam, CO_RESERVA_INDIGENA_FAM AS cod_reserva_indigena_fam, NO_RESERVA_INDIGENA_FAM AS nom_reserva_indigena_fam,
+	IN_RESERVA_INDIGENA_FAM AS ind_reserva_indigena_fam, IN_FAMILIA_QUILOMBOLA_FAM AS ind_familia_quilombola_fam, CO_COMUNIDADE_QUILOMBOLA_FAM AS cod_comunidade_quilombola_fam,
+	NO_COMUNIDADE_QUILOMBOLA_FAM AS nom_comunidade_quilombola_fam, IN_COMUNIDADE_QUILOMBOLA_FAM AS ind_comunidade_quilombola_fam, QT_PESSOAS_DOMIC_FAM AS qtd_pessoas_domic_fam,
+	QT_FAMILIAS_DOMIC_FAM AS qtd_familias_domic_fam, QT_PESSOA_INTER_0_17_ANOS_FAM AS qtd_pessoa_inter_0_17_anos_fam, IN_PESSOA_INTER_0_17_ANOS_FAM AS ind_pessoa_inter_0_17_anos_fam,
+	QT_PESSOA_INTER_18_64_ANOS_FAM AS qtd_pessoa_inter_18_64_anos_fam, IN_PESSOA_INTER_18_64_ANOS_FAM AS ind_pessoa_inter_18_64_anos_fam, QT_PESSOA_INTER_65_ANOS_FAM AS qtd_pessoa_inter_65_anos_fam,
+	IN_PESSOA_INTER_65_ANOS_FAM AS ind_pessoa_inter_65_anos_fam, VL_DESP_ENERGIA_FAM AS val_desp_energia_fam, IN_DESP_ENERGIA_FAM AS ind_desp_energia_fam,
+	VL_DESP_AGUA_ESGOTO_FAM AS val_desp_agua_esgoto_fam, IN_DESP_AGUA_ESGOTO_FAM AS ind_desp_agua_esgoto_fam, VL_DESP_GAS_FAM AS val_desp_gas_fam,
+	IN_DESP_GAS_FAM AS ind_desp_gas_fam, VL_DESP_ALIMENTACAO_FAM AS val_desp_alimentacao_fam, IN_DESP_ALIMENTACAO_FAM AS ind_desp_alimentacao_fam,
+	VL_DESP_TRANSPOR_FAM AS val_desp_transpor_fam, IN_DESP_TRANSPOR_FAM AS ind_desp_transpor_fam, VL_DESP_ALUGUEL_FAM AS val_desp_aluguel_fam,
+	IN_DESP_ALUGUEL_FAM AS ind_desp_aluguel_fam, VL_DESP_MEDICAMENTOS_FAM AS val_desp_medicamentos_fam, IN_DESP_MEDICAMENTOS_FAM AS ind_desp_medicamentos_fam,
+	NO_ESTAB_ASSIST_SAUDE_FAM AS nom_estab_assist_saude_fam, NU_ESTBO_SAUDE AS cod_eas_fam, NO_CENTRO_ASSIST_FAM AS nom_centro_assist_fam,
+	CO_CENTRO_ASSIST_FAM AS cod_centro_assist_fam, IN_PARC_MDS_FAM AS ind_parc_mds_fam 
+FROM P_CADASTRO_ODS_202110.TB_FAMILIA_01 b1 left join P_CADASTRO_ODS_202110.TB_DOMICILIO_02 b2 on
+	b1.CO_FAMILIAR_FAM = b2.CO_FAMILIAR_FAM left join
+	P_CADASTRO_ODS_202110.TB_FAM_INDIGE_QUILOMB_03 b3 on b1.CO_FAMILIAR_FAM = b3.CO_FAMILIAR_FAM left join
+	P_CADASTRO_ODS_202110.TB_BENEFICIO_INDICE_11 b11 on b1.CO_FAMILIAR_FAM = b11.CO_FAMILIAR_FAM
+WHERE CO_EST_CADASTRAL_FAM = 3) WITH DATA PRIMARY INDEX (cod_familiar_fam);
